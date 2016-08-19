@@ -9,22 +9,22 @@ AccountsTemplates.addFields([{
 }, emailField, passwordField]);*/
 // Only allow festivaljapon logins
 Accounts.config({ restrictCreationByEmailDomain: 'festivaljapon.com'});
-/*AccountsTemplates.configure({
+AccountsTemplates.configure({
   defaultLayout: 'userFormsLayout',
   defaultContentRegion: 'content',
   confirmPassword: false,
   enablePasswordChange: false,
   sendVerificationEmail: false,
   showForgotPasswordLink: false,
-  /!*onLogoutHook() {
+  /*onLogoutHook() {
     const homePage = 'home';
     if (FlowRouter.getRouteName() === homePage) {
       FlowRouter.reload();
     } else {
       FlowRouter.go(homePage);
     }
-  },*!/
-});*/
+  },*/
+});
 
 /*['signIn', 'signUp', 'enrollAccount'].forEach(
   (routeName) => AccountsTemplates.configureRoute(routeName));

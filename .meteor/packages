@@ -28,13 +28,13 @@ mongo
 mquandalle:collection-mutations
 
 # Account system
-accounts-ui
+#accounts-ui
 accounts-google
 kenton:accounts-sandstorm
 service-configuration
-#useraccounts:core
-#useraccounts:unstyled
-#useraccounts:flow-routing
+useraccounts:core
+useraccounts:unstyled
+useraccounts:flow-routing
 email
 
 # Utilities
