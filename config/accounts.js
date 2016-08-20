@@ -30,4 +30,4 @@ AccountsTemplates.configure({
   }
 });
 
-AccountsTemplates.removeField('lang');
+//AccountsTemplates.removeField('lang');
