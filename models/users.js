@@ -40,10 +40,10 @@ Users.attachSchema(new SimpleSchema({
     optional: true,
     autoValue() { // eslint-disable-line consistent-return
       if (this.isInsert && !this.isSet) {
-        const googleProfile = this.field('services.google');
+        /*const googleProfile = this.field('services.google');
         if(googleProfile.isSet){
           return { avatarUrl: googleProfile.picture};
-        }
+        }*/
         return {};
       }
     },
@@ -73,12 +73,12 @@ Users.attachSchema(new SimpleSchema({
   'profile.fullname': {
     type: String,
     optional: true,
-    autoValue() { //auto-update
+    /*autoValue() { //auto-update
       const name = this.field('services.google.name');
       if(name.isSet) {
         return name;
       }
-    }
+    }*/
   },
   'profile.initials': {
     type: String,
