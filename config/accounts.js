@@ -7,6 +7,7 @@ AccountsTemplates.addFields([{
   required: true,
   minLength: 2,
 }, emailField, passwordField]);*/
+
 // Only allow festivaljapon logins
 Accounts.config({ restrictCreationByEmailDomain: 'festivaljapon.com'});
 AccountsTemplates.configure({
@@ -26,10 +27,10 @@ AccountsTemplates.configure({
   },*/
 });
 
-/*['signIn', 'signUp', 'enrollAccount'].forEach(
+['signIn', 'signUp', 'enrollAccount'].forEach(
   (routeName) => AccountsTemplates.configureRoute(routeName));
 
-
+/*
 if (Meteor.isServer) {
   if (process.env.MAIL_FROM) {
     Accounts.emailTemplates.from = process.env.MAIL_FROM;
