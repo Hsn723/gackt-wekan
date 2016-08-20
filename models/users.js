@@ -3,16 +3,7 @@ Users = Meteor.users;
 Users.attachSchema(new SimpleSchema({
   username: {
     type: String,
-    optional: true,
-    /*autoValue() { // eslint-disable-line consistent-return
-      if (this.isInsert && !this.isSet) {
-        const name = this.field('profile.emailBuffer');
-        if (name.isSet && name.size > 0) {
-          return name.value[0];
-          //return name.value.toLowerCase().replace(/\s/g, '');
-        }
-      }
-    },*/
+    optional: true
   },
   emails: {
     type: [Object],
@@ -37,30 +28,11 @@ Users.attachSchema(new SimpleSchema({
   },
   profile: {
     type: Object,
-    optional: true,
-    /*autoValue() { // eslint-disable-line consistent-return
-      if (this.isInsert && !this.isSet) {
-        const services = this.field('services');
-        if(services.isSet){
-          return {
-            avatarUrl: services.value.google.picture,
-            emailBuffer: [services.value.google.email],
-            fullname: services.value.google.name
-          };
-        }
-        return {};
-      }
-    },*/
+    optional: true
   },
   'profile.avatarUrl': {
     type: String,
-    optional: true,
-    /*autoValue() {
-      const avatar = this.field('services.google.picture');
-      if(avatar.isSet) {
-        return avatar;
-      }
-    }*/
+    optional: true
   },
   'profile.emailBuffer': {
     type: [String],
@@ -68,13 +40,7 @@ Users.attachSchema(new SimpleSchema({
   },
   'profile.fullname': {
     type: String,
-    optional: true,
-    /*autoValue() { //auto-update
-      const name = this.field('services.google.name');
-      if(name.isSet) {
-        return name.value;
-      }
-    }*/
+    optional: true
   },
   'profile.initials': {
     type: String,

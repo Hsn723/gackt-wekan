@@ -4,7 +4,6 @@ Template.headerUserBar.events({
 });
 
 Template.memberMenuPopup.events({
-  'click .js-edit-profile': Popup.open('editProfile'),
   'click .js-change-avatar': Popup.open('changeAvatar'),
   'click .js-edit-notification': Popup.open('editNotification'),
   'click .js-logout'(evt) {
@@ -14,23 +13,6 @@ Template.memberMenuPopup.events({
   },
 });
 
-Template.editProfilePopup.events({
-  submit(evt, tpl) {
-    evt.preventDefault();
-    const fullname = tpl.find('.js-profile-fullname').value.trim();
-    const username = tpl.find('.js-profile-username').value.trim();
-    const initials = tpl.find('.js-profile-initials').value.trim();
-    Users.update(Meteor.userId(), {$set: {
-      'profile.fullname': fullname,
-      'profile.initials': initials,
-    }});
-    // XXX We should report the error to the user.
-    if (username !== Meteor.user().username) {
-      Meteor.call('setUsername', username);
-    }
-    Popup.back();
-  },
-});
 
 Template.editNotificationPopup.helpers({
   hasTag(tag) {

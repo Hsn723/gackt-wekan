@@ -29,5 +29,3 @@ AccountsTemplates.configure({
     }
   }
 });
-
-//AccountsTemplates.removeField('lang');

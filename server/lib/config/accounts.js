@@ -20,6 +20,7 @@ Meteor.startup(function() {
     user.profile.emailBuffer = [email];
     user.profile.avatarUrl = picture;
     user.username = email;
+    user.profile.initials = name.match(/[A-Z]/g).join("");
 
   //const { first_name, last_name } = user.services.facebook;
   //user.initials = first_name[0].toUpperCase() + last_name[0].toUpperCase();
