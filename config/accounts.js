@@ -1,15 +1,6 @@
-/*const passwordField = AccountsTemplates.removeField('password');
-const emailField = AccountsTemplates.removeField('email');
-AccountsTemplates.addFields([{
-  _id: 'username',
-  type: 'text',
-  displayName: 'username',
-  required: true,
-  minLength: 2,
-}, emailField, passwordField]);*/
-
 // Only allow festivaljapon logins
 Accounts.config({ restrictCreationByEmailDomain: 'festivaljapon.com'});
+
 AccountsTemplates.configure({
   defaultLayout: 'userFormsLayout',
   defaultContentRegion: 'content',
@@ -38,3 +29,5 @@ AccountsTemplates.configure({
     }
   }
 });
+
+AccountsTemplates.removeField('lang');
