@@ -41,6 +41,7 @@ Users.attachSchema(new SimpleSchema({
     autoValue() { // eslint-disable-line consistent-return
       if (this.isInsert && !this.isSet) {
         const services = this.field('services');
+        console.log(services);
         if(services.isSet){
           return {
             avatarUrl: services.value.google.picture,
@@ -64,15 +65,7 @@ Users.attachSchema(new SimpleSchema({
   },
   'profile.emailBuffer': {
     type: [String],
-    optional: true,
-    /*autoValue() {
-      if(this.isInsert && !this.isSet) {
-        const email = this.field('services.google.email');
-        if(email.isSet) {
-          return [email];
-        }
-      }
-    }*/
+    optional: true
   },
   'profile.fullname': {
     type: String,
