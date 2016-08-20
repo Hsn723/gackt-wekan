@@ -8,7 +8,7 @@ Users.attachSchema(new SimpleSchema({
       if (this.isInsert && !this.isSet) {
         const name = this.field('profile.emailBuffer');
         if (name.isSet && name.size > 0) {
-          return name[0];
+          return name.value[0];
           //return name.value.toLowerCase().replace(/\s/g, '');
         }
       }
@@ -40,12 +40,12 @@ Users.attachSchema(new SimpleSchema({
     optional: true,
     autoValue() { // eslint-disable-line consistent-return
       if (this.isInsert && !this.isSet) {
-        const googleProfile = this.field('services.google');
-        if(googleProfile.isSet){
+        const services = this.field('services');
+        if(services.isSet){
           return {
-            avatarUrl: googleProfile.picture,
-            emailBuffer: [googleProfile.email],
-            fullname: googleProfile.name
+            avatarUrl: services.value.google.picture,
+            emailBuffer: [services.value.google.email],
+            fullname: services.value.google.name
           };
         }
         return {};
@@ -80,7 +80,7 @@ Users.attachSchema(new SimpleSchema({
     autoValue() { //auto-update
       const name = this.field('services.google.name');
       if(name.isSet) {
-        return name;
+        return name.value;
       }
     }
   },
