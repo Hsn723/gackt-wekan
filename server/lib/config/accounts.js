@@ -9,14 +9,13 @@ Meteor.startup(function() {
     },
     { upsert: true }
   );
-  // Only allow festivaljapon logins
-  Accounts.config({ restrictCreationByEmailDomain: 'festivaljapon.com'});
 
   Accounts.onCreateUser((options, user) => {
     if (! user.services.google) {
       throw new Error('Expected login with Google only.');
     }
     const { picture, email, name } = user.services.google;
+    user.profile = {};
     user.profile.fullname = name;
     user.profile.emailBuffer = [email];
     user.profile.avatarUrl = picture;
