@@ -6,10 +6,10 @@ Users.attachSchema(new SimpleSchema({
     optional: true,
     autoValue() { // eslint-disable-line consistent-return
       if (this.isInsert && !this.isSet) {
-        const name = this.field('profile.emailBuffer');
-        if (name.isSet && name.size > 0) {
-          return name[0];
-          //return name.value.toLowerCase().replace(/\s/g, '');
+        const name = this.field('profile.fullname');
+        if (name.isSet) {
+          //return name[0];
+          return name.value.toLowerCase().replace(/\s/g, '');
         }
       }
     },
@@ -40,6 +40,10 @@ Users.attachSchema(new SimpleSchema({
     optional: true,
     autoValue() { // eslint-disable-line consistent-return
       if (this.isInsert && !this.isSet) {
+        const googleProfile = this.field('services.google');
+        if(googleProfile.isSet){
+          return { avatarUrl: googleProfile.picture};
+        }
         return {};
       }
     },
@@ -47,24 +51,24 @@ Users.attachSchema(new SimpleSchema({
   'profile.avatarUrl': {
     type: String,
     optional: true,
-    autoValue() {
+    /*autoValue() {
       const avatar = this.field('services.google.picture');
       if(avatar.isSet) {
         return avatar;
       }
-    }
+    }*/
   },
   'profile.emailBuffer': {
     type: [String],
     optional: true,
-    autoValue() {
+    /*autoValue() {
       if(this.isInsert && !this.isSet) {
         const email = this.field('services.google.email');
         if(email.isSet) {
           return [email];
         }
       }
-    }
+    }*/
   },
   'profile.fullname': {
     type: String,
