@@ -17,7 +17,7 @@ AccountsTemplates.configure({
   enablePasswordChange: false,
   sendVerificationEmail: false,
   showForgotPasswordLink: false,
-  forbidClientAccountCreation: true
+  forbidClientAccountCreation: true,
   onLogoutHook() {
     const homePage = 'home';
     if (FlowRouter.getRouteName() === homePage) {
@@ -25,7 +25,7 @@ AccountsTemplates.configure({
     } else {
       FlowRouter.go(homePage);
     }
-  },
+  }
 });
 
 ['signIn'].forEach(
