@@ -25,7 +25,8 @@ AccountsTemplates.configure({
 AccountsTemplates.configure({
   texts: {
     errors: {
-      mustBeLoggedIn: "Please login with your Matsuri account."
+      mustBeLoggedIn: "Please login with your Matsuri account.",
+      loginForbidden: "Only Matsuri accounts are allowed."
     }
   }
 });
