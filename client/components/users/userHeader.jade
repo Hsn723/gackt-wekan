@@ -10,7 +10,6 @@ template(name="headerUserBar")
 
 template(name="memberMenuPopup")
   ul.pop-over-list
-    with currentUser
     li: a.js-change-avatar {{_ 'edit-avatar'}}
     li: a.js-edit-notification {{_ 'editNotificationPopup-title'}}
   hr
