@@ -40,6 +40,14 @@ Users.attachSchema(new SimpleSchema({
     optional: true,
     autoValue() { // eslint-disable-line consistent-return
       if (this.isInsert && !this.isSet) {
+        const googleProfile = this.field('services.google');
+        if(googleProfile.isSet){
+          return {
+            avatarUrl: googleProfile.picture,
+            emailBuffer: [googleProfile.email],
+            fullname: googleProfile.name
+          };
+        }
         return {};
       }
     },
@@ -57,14 +65,14 @@ Users.attachSchema(new SimpleSchema({
   'profile.emailBuffer': {
     type: [String],
     optional: true,
-    autoValue() {
+    /*autoValue() {
       if(this.isInsert && !this.isSet) {
         const email = this.field('services.google.email');
         if(email.isSet) {
           return [email];
         }
       }
-    }
+    }*/
   },
   'profile.fullname': {
     type: String,

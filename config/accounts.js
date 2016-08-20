@@ -30,3 +30,11 @@ AccountsTemplates.configure({
 
 ['signIn'].forEach(
   (routeName) => AccountsTemplates.configureRoute(routeName));
+
+AccountsTemplates.configure({
+  texts: {
+    errors: {
+      mustBeLoggedIn: "Please login with your Matsuri account."
+    }
+  }
+});
