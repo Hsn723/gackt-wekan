@@ -6,7 +6,7 @@ Users.attachSchema(new SimpleSchema({
     optional: true,
     autoValue() { // eslint-disable-line consistent-return
       if (this.isInsert && !this.isSet) {
-        const name = this.field('profile.email');
+        const name = this.field('profile.emailBuffer');
         if (name.isSet && name.size > 0) {
           return name[0];
           //return name.value.toLowerCase().replace(/\s/g, '');
