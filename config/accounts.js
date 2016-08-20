@@ -28,7 +28,7 @@ AccountsTemplates.configure({
   },*/
 });
 
-['signIn', 'signUp', 'enrollAccount'].forEach(
+['signIn'].forEach(
   (routeName) => AccountsTemplates.configureRoute(routeName));
 
 /*
